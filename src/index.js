@@ -1,8 +1,8 @@
 export { clerk as Clerk } from './clerk.js';
-export { default as ClerkProvider } from './ClerkProvider';
-export { default as SignedIn } from './SignedIn';
-export { default as SignedOut } from './SignedOut';
-export { default as SignIn } from './SignIn';
-export { default as SignUp } from './SignUp';
-export { default as UserButton } from './UserButton';
-export { default as UserProfile } from './UserProfile';
+export { default as ClerkProvider } from './ClerkProvider.svelte';
+export { default as SignedIn } from './SignedIn.svelte';
+export { default as SignedOut } from './SignedOut.svelte';
+export { default as SignIn } from './SignIn.svelte';
+export { default as SignUp } from './SignUp.svelte';
+export { default as UserButton } from './UserButton.svelte';
+export { default as UserProfile } from './UserProfile.svelte';
