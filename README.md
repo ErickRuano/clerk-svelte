@@ -1,8 +1,4 @@
-*Psst — looking for an app template? Go here --> [sveltejs/template](https://github.com/sveltejs/template)*
-
----
-
-# svelt-component-library-template
+# svelte-component-library-template
 
 A base for building shareable Svelte component library. Clone it with [degit](https://github.com/Rich-Harris/degit):
 
@@ -12,7 +8,7 @@ cd my-new-component
 npm install # or yarn
 ```
 
-Your component's source code lives in `src/Component.svelte`.
+Your component's source code lives in `src/*.svelte`.
 
 You can create a package that exports multiple components by adding them to the `src` directory and editing `src/index.js` to reexport them as named exports.
 
