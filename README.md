@@ -34,6 +34,8 @@ import {
 
 <!-- Anywhere in your project -->
 
+Hello, {$Clerk.user.fullName}!
+
 <SignIn/>
 
 <SignUp/>
@@ -52,3 +54,10 @@ import {
 </SignedOut>
 
 ```
+
+# To-do
+
+- Test components
+- Add useClerk and useUser methods to mimic official React implementation
+- Create demo site
+- Edge case: Update Clerk store when session changes and custom navigate handler was provided
