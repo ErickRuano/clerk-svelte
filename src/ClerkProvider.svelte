@@ -3,7 +3,7 @@
 import {onMount} from 'svelte'
 import { clerk } from './clerk.js'
 export let frontendApi = "";
-export let navigate = ()=>{  }
+export let navigate
 
 
 
@@ -12,9 +12,9 @@ export let navigate = ()=>{  }
 		const script = document.createElement('script');
 		script.setAttribute('data-clerk-frontend-api', frontendApi);
 		script.async = true;
-		script.src = `https://${api}/npm/@clerk/clerk-js@1/dist/clerk.browser.js`
+		script.src = `https://${frontendApi}/npm/@clerk/clerk-js@1/dist/clerk.browser.js`
 		script.addEventListener('load', function(){
-            window.Clerk.load({ navigate }).then((e)=>{
+            window.Clerk.load({ navigate : navigate || undefined }).then((e)=>{
                 clerk.update(() => window.Clerk)
             })
 		});
