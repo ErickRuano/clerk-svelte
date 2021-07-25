@@ -1,53 +1,54 @@
-# svelte-component-library-template
+# clerk-svelte
 
-A base for building shareable Svelte component library. Clone it with [degit](https://github.com/Rich-Harris/degit):
+An unofficial implementation of Clerk components inspired by the official react implementation
+
+Because of how the Clerk.js library is loaded a REPL example is not possible.
+
+# Installation
 
 ```bash
-npx degit nirmaoz/svelte-component-library-template my-new-component
-cd my-new-component
-npm install # or yarn
+npm i -D @erickruano/clerk-svelte
 ```
 
-Your component's source code lives in `src/*.svelte`.
+# Usage
 
-You can create a package that exports multiple components by adding them to the `src` directory and editing `src/index.js` to reexport them as named exports.
+```html
+<script>
+import { 
+    /* Stores */
+    Clerk,  // Svelte writable store that exposes Clerk for you instead of using window
+    /* Components */
+    ClerkProvider,  // This component must exist once in your App.svelte or equivalent.  This is the one that loads Clerk.js
+    SignIn, // Place wherever you need. It will mount the SignIn flow UI
+    SignUp, // Place wherever you need. It will mount the SignUp flow UI
+    UserButton, // Place wherever you need. It will mount the User Button UI
+    UserProfile, // Place wherever you need.  It will mount the User Profile UI
+    SignedIn,  // Whatever you wrap inside this component will show only if a session exists in Clerk
+    SignedOut  // Whatever you wrap inside this component will show only if no session exists in Clerk
+} from '@erickruano/clerk-svelte'
+</script>
 
-## This template includes:
+<!-- src/App.js -->
 
-* Svelte Component
-* Testing using svelte-testing-library + Jest
-* Storybook
-* Rollup, configured to build .js (umd), .min.js (iife), .mjs (es)
+<ClerkProvider frontendApi="your-api"/>
 
-## Setting up
+<!-- Anywhere in your project -->
 
-* Run `npm init` (or `yarn init`)
-* Replace this README with your own
+<SignIn/>
 
-## Consuming components
+<SignUp/>
 
-Your package.json has a `"svelte"` field pointing to `src/index.js`, which allows Svelte apps to import the source code directly, if they are using a bundler plugin like [rollup-plugin-svelte](https://github.com/sveltejs/rollup-plugin-svelte) or [svelte-loader](https://github.com/sveltejs/svelte-loader) (where [`resolve.mainFields`](https://webpack.js.org/configuration/resolve/#resolve-mainfields) in your webpack config includes `"svelte"`). **This is recommended.**
+<UserButton/>
 
-For everyone else, `npm run build` will bundle your component's source code into a plain JavaScript module (`dist/index.mjs`) and a UMD script (`dist/index.js`). This will happen automatically when you publish your component to npm, courtesy of the `prepublishOnly` hook in package.json.
+<UserProfile/>
 
-### Based on sveltejs/component-template
-I couldn't find an opinionated components library template to my liking, so I used [sveltejs/component-template](https://github.com/sveltejs/component-template) as base. And then I added minified build configuration using terser plugin + tests + storybook.
+<SignedIn>
+    <!-- User is signed in, show dashboard  -->
+</SignedIn>
 
-### Testing
-Comes with tests out of the box using [svelte-testing-library](https://github.com/testing-library/svelte-testing-library) + [Jest](https://github.com/facebook/jest).
+<SignedOut>
+    <!-- User is signed out, show sign-in flow  -->
+    <SignIn />
+</SignedOut>
 
-To Run tests:
-```bash
-npm test # or yarn
-```
-
-### Storybook
-To serve development build:
-```bash
-npm run storybook
-```
-
-To build static storybook site (default output folder is /docs for easly sharing on github pages):
-```bash
-npm run build-storybook
 ```
