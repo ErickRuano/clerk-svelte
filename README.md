@@ -1,3 +1,5 @@
+**Warning** This repo hasn't been updated in a while.  PRs are welcomed.  Otherwise I hope to push some updates soon :)
+
 # clerk-svelte
 
 An unofficial implementation of Clerk components inspired by the official react implementation
