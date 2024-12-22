@@ -1,4 +1,7 @@
-**Warning** This repo hasn't been updated in a while.  PRs are welcomed.  Otherwise I hope to push some updates soon :)
+**Warning** This repo is no longer under maintenance.  I suggest checking these alternatives instead:
+
+https://github.com/wobsoriano/svelte-clerk
+https://github.com/markjaquith/clerk-sveltekit
 
 # clerk-svelte
 
